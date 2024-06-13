@@ -10,7 +10,6 @@ Example:
   Output: false
 """
 
-
 def solution(str1: str, str2: str) -> bool:
     invalidIndex = []
     LENGTH = len(str1)
@@ -36,7 +35,6 @@ def solution(str1: str, str2: str) -> bool:
             str2_after_swaped += str2[i]
 
     return len(invalidIndex) == 2 and str1 == str2_after_swaped
-
 
 if __name__ == "__main__":
     print(solution("bank", "kanb"))
