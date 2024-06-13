@@ -23,7 +23,6 @@ def countReactanglesOfLargestSquares(rectangleData: List[List[int]]):
     # number of rectangle with largest square
     return squares.count(max(squares))
 
-
 if __name__ == "__main__":
     rectangles = [[5, 8], [3, 9], [5, 12], [16, 5]]
     output = countReactanglesOfLargestSquares(rectangles)
