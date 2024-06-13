@@ -19,6 +19,9 @@ def solution(str1: str, str2: str) -> bool:
         if str1[i] != str2[i]:
             invalidIndex.append(i)
 
+    if len(invalidIndex) == 0:
+        return True
+
     if len(invalidIndex) < 2:
         return False
 
@@ -40,3 +43,4 @@ if __name__ == "__main__":
     print(solution("Katheryn", "Kahteryn"))
     print(solution("Winnick", "Kathery"))
     print(solution("abcd", "acbd"))
+    print(solution("abcd", "abcd"))

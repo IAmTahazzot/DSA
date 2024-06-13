@@ -10,42 +10,50 @@
  * 3. Input: s1 = "Winnick" s2 = "Kathery"
  *   Output: false
  */
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 
-bool solution(char *str1, char *str2);
-
-int main(void)
+bool isPermutationPossibleWithSwap(char *s1, char *s2)
 {
-  char str1[] = "somewhere";
-  char str2[] = "soeewherm";
-  if (solution(str1, str2))
-  {
-    printf("true\n");
-  }
-  else
-  {
-    printf("false\n");
-  }
-  return 0;
+    int diff = 0;
+    int diffIndex[2];
+    for (int i = 0; i < strlen(s1); i++)
+    {
+        if (s1[i] != s2[i])
+        {
+            diff++;
+            if (diff > 2)
+            {
+                return false;
+            }
+            diffIndex[diff - 1] = i;
+        }
+    }
+    if (diff == 0)
+    {
+        return true;
+    }
+    if (diff == 2)
+    {
+        return s1[diffIndex[0]] == s2[diffIndex[1]] && s1[diffIndex[1]] == s2[diffIndex[0]];
+    }
+    return false;
 }
 
-bool solution(char *str1, char *str2)
+int main()
 {
-  int len = strlen(str1);
-  int diff = 0;
-  for (int i = 0; i < len; i++)
-  {
-    if (str1[i] != str2[i])
-    {
-      diff++;
-    }
-  }
-  if (diff == 2)
-  {
-    return true;
-  }
-  return false;
+    char s1[] = "bank";
+    char s2[] = "kanb";
+    printf("%d\n", isPermutationPossibleWithSwap(s1, s2));
+
+    char s3[] = "Katheryn";
+    char s4[] = "Kahteryn";
+    printf("%d\n", isPermutationPossibleWithSwap(s3, s4));
+
+    char s5[] = "Winnick";
+    char s6[] = "Kathery";
+    printf("%d\n", isPermutationPossibleWithSwap(s5, s6));
+
+    return 0;
 }
