@@ -22,14 +22,12 @@ from typing import List
 
 
 def breakingRecords(scores: List[int]):
-    currentLeastPoint = scores[0]
-    currentMostPoint = scores[0]
-    leastPoints = 0
-    mostPoints = 0
+    currentLeastPoint = currentMostPoint = scores[0]
+    leastPoints = mostPoints = 0
 
     for i in range(len(scores)):
         if currentMostPoint < scores[i]:
-            # new break
+            # new breaking point
             mostPoints += 1
             currentMostPoint = scores[i]
         elif currentLeastPoint > scores[i]:
